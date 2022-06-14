@@ -23,4 +23,3 @@ class Vehicle:
     def apply_car_following_model(self):
         pass
 
-    

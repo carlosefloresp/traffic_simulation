@@ -14,14 +14,21 @@ class CarFollowingModel:
 
 
 class IDM(CarFollowingModel):
+    def __init__(self, params: dict):
+        super().__init__()
+
+
+class GM(CarFollowingModel):
     def __init__(self):
-        super.init()
+        super().__init__()
 
 
-class GM:
+class OptimalVelocity(CarFollowingModel):
+    def __init__(self):
+        super().__init__()
 
 
-class OptimalVelocity:
-
-
-class GHR:
+class GHR(CarFollowingModel):
+    def __init__(self):
+        super().__init__()
+        

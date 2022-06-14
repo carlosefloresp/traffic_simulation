@@ -1,3 +1,6 @@
+import car_following
+
+a = car_following.IDM({})
 
 
 # Init vehicles with random models, with probability of selecting a model type
