@@ -1,0 +1,42 @@
+{
+  "simulation_length": 180,
+  "sampling_period": 0.01,
+  "number_of_vehicles": 1000,
+  "circuit_length": 10000.0,
+  "ego_vehicle": {
+    "ID": 0,
+    "top_speed": 7.0,
+    "max_long_acceleration": 1,
+    "min_long_acceleration": -1,
+    "max_lat_acceleration": 1,
+    "start_waypoint": 0.2,
+    "initial_speed": 0.5
+  },
+  "idm_probability": 0.5,
+  "gm_probability": 0.25,
+  "ov_probability": 0.15,
+  "ghr_probability": 0.1,
+  "idm_parameters":
+    {
+      "a_max": 1.0,
+      "b_max": -4.0,
+      "v_target": 33.0
+    },
+    "ov_parameters":
+    {
+      "a_max": 1.0,
+      "b_max": -4.0,
+      "v_target": 33.0
+    },
+    "gm_parameters":
+    {
+      "a_max": 1.0,
+      "b_max": -4.0,
+      "v_target": 33.0
+    },
+    "ghr_parameters": {
+      "a_max": 1.0,
+      "b_max": -4.0,
+      "v_target": 33.0
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "ego_vehicle": {
+    "ID": 0,
+    "top_speed": 7.0,
+    "max_long_acceleration": 1,
+    "min_long_acceleration": -1,
+    "max_lat_acceleration": 1,
+    "start_waypoint": 0.2,
+    "initial_speed": 0.5
+  }
+}
