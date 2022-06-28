@@ -9,6 +9,7 @@ class EnvironmentStruct:
         self.circuit_length = setup["circuit_length"]
         self.nb_vehicles = setup["number_of_vehicles"]
         self.init_speed = setup["init_speed"]
+        self.consider_model_inputs_disturbance = setup["consider_model_inputs_disturbance"]
         self.idm_probability = setup["idm_probability"]
         self.gm_probability = setup["gm_probability"]
         self.ov_probability = setup["ov_probability"]
