@@ -1,7 +1,7 @@
 from conf.conf import *
 import numpy as np
-from vehicle import Vehicle
-from car_following import ModelTypes
+from vehicle import *
+import utils
 import random
 
 
@@ -12,25 +12,6 @@ class SimulationEnvironment:
         self.control_conf = ControlledStruct(control_file)
         self.vehicles_list = []
 
-    def init_simulation_environment(self):
-        for veh_id in range(self.env_conf.nb_vehicles):
-            self.vehicles_list.append(self.init_other_vehicle(veh_id))
-
-    def init_other_vehicle(self, veh_id: int):
-        starting_pose = self.env_conf.circuit_length * veh_id / \
-                        (self.env_conf.nb_vehicles - self.control_conf.nb_avs)
-        rand = random.random()
-        if 0 <= rand <= self.env_conf.idm_probability:
-            vehicle_model = ModelTypes.IDM_model
-        elif 0 <= rand-self.env_conf.idm_probability <= self.env_conf.gm_probability:
-            vehicle_model = ModelTypes.GM_model
-        elif 0 <= rand - self.env_conf.idm_probability - self.env_conf.gm_probability <= self.env_conf.ov_probability:
-            vehicle_model = ModelTypes.OV_model
-        else:
-            vehicle_model = ModelTypes.GHR_model
-        return Vehicle(id=veh_id, curv_pose=starting_pose, init_speed=self.env_conf.init_speed,
-                       model_type=vehicle_model)
-
     def launch_simulation(self):
         for t in np.arange(0, self.env_conf.simulation_length, self.env_conf.sampling_period):
             self.run_simulation_step(t, self.vehicles_list)
@@ -40,3 +21,28 @@ class SimulationEnvironment:
         for vehicle in self.vehicles_list:
             vehicle.update_state(t, vehicles_list_copy)
 
+    def init_simulation_environment(self):
+        for veh_id in range(self.env_conf.nb_vehicles):
+            self.init_other_vehicle(veh_id)
+
+    def init_other_vehicle(self, veh_id: int):
+        starting_pose = self.env_conf.circuit_length * veh_id / self.env_conf.nb_vehicles
+        init_state = VehicleState(acceleration=0., speed=self.env_conf.init_speed, position=starting_pose)
+        self.vehicles_list.append(self.spawn_a_vehicle(veh_id=veh_id, init_state=init_state))
+
+    def spawn_a_vehicle(self, veh_id: int, init_state: VehicleState):
+        rand = random.random()
+        model = utils.get_model_type(random_nb=rand, conf=self.env_conf)
+
+        rand = random.random()
+        driver = utils.get_driver_type(random_nb=rand, conf=self.env_conf)
+        return Vehicle(ego_id=veh_id,
+                       init_state=init_state,
+                       model_type=model,
+                       driver_type=driver,
+                       env_conf=self.env_conf)
+
+
+class EnvironmentBuilder:
+    def __init__(self):
+        pass

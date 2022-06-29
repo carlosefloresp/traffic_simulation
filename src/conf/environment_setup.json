@@ -1,27 +1,86 @@
 {
   "simulation_length": 180,
-  "sampling_period": 0.01,
+  "sampling_period": 0.1,
   "number_of_vehicles": 1000,
   "circuit_length": 10000.0,
-  "ego_vehicle": {
-    "ID": 0,
-    "top_speed": 7.0,
-    "max_long_acceleration": 1,
-    "min_long_acceleration": -1,
-    "max_lat_acceleration": 1,
-    "start_waypoint": 0.2,
-    "initial_speed": 0.5
-  },
-  "idm_probability": 0.5,
-  "gm_probability": 0.25,
-  "ov_probability": 0.15,
-  "ghr_probability": 0.1,
-  "idm_parameters":
+  "init_speed": 20.0,
+  "idm_probability": 1.0,
+  "gm_probability": 0.0,
+  "ov_probability": 0.0,
+  "ghr_probability": 0.0,
+  "very_passive_prob": 0.1,
+  "passive_prob": 0.2,
+  "medium_prob": 0.4,
+  "aggressive_prob": 0.2,
+  "very_aggressive_prob": 0.1,
+  "disturb_models": true,
+  "idm_parameters": [
     {
       "a_max": 1.0,
-      "b_max": -4.0,
-      "v_target": 33.0
+      "b_desired": -4.0,
+      "T": 1.0,
+      "delta": 4.0,
+      "reaction_time": 0.3,
+      "standstill": 3.0,
+      "free_flow_speed": 33.0,
+      "persistence_period_gap": 30.0,
+      "std_gap": 0.01,
+      "persistence_period_rel_speed": 20.0,
+      "std_rel_speed": 0.01
     },
+    {
+      "a_max": 1.0,
+      "b_desired": -4.0,
+      "T": 1.0,
+      "delta": 4.0,
+      "reaction_time": 0.3,
+      "standstill": 3.0,
+      "free_flow_speed": 33.0,
+      "persistence_period_gap": 30.0,
+      "std_gap": 0.01,
+      "persistence_period_rel_speed": 20.0,
+      "std_rel_speed": 0.01
+    },
+    {
+      "a_max": 1.0,
+      "b_desired": -4.0,
+      "T": 1.0,
+      "delta": 4.0,
+      "reaction_time": 0.3,
+      "standstill": 3.0,
+      "free_flow_speed": 33.0,
+      "persistence_period_gap": 30.0,
+      "std_gap": 0.01,
+      "persistence_period_rel_speed": 20.0,
+      "std_rel_speed": 0.01
+    },
+    {
+      "a_max": 1.0,
+      "b_desired": -4.0,
+      "T": 1.0,
+      "delta": 4.0,
+      "reaction_time": 0.3,
+      "standstill": 3.0,
+      "free_flow_speed": 33.0,
+      "persistence_period_gap": 30.0,
+      "std_gap": 0.01,
+      "persistence_period_rel_speed": 20.0,
+      "std_rel_speed": 0.01
+    },
+    {
+      "a_max": 1.0,
+      "b_desired": -4.0,
+      "T": 1.0,
+      "delta": 4.0,
+      "reaction_time": 0.3,
+      "standstill": 3.0,
+      "free_flow_speed": 33.0,
+      "persistence_period_gap": 30.0,
+      "std_gap": 0.01,
+      "persistence_period_rel_speed": 20.0,
+      "std_rel_speed": 0.01
+    }
+  ],
     "ov_parameters":
     {
       "a_max": 1.0,
